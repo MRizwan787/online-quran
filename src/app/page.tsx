@@ -1,101 +1,147 @@
+import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+const HomePage: React.FC = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="relative flex flex-col min-h-screen bg-gradient-to-br from-indigo-900 via-indigo-950 to-black text-white font-serif overflow-hidden">
+      {/* Hero Section */}
+      <header className="relative text-center flex flex-col items-center gap-6 py-24 sm:py-12">
+        {/* Main Image */}
+        <div className="relative w-full sm:w-3/4 md:w-1/2 mb-8 animate-fade-in">
+          <Image
+            src="/KhairuKum.jpg"
+            alt="Learning Quran"
+            layout="responsive"
+            width={800}
+            height={533}
+            className="rounded-lg shadow-2xl transform hover:scale-105 transition-transform object-cover"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+
+        {/* Hero Text */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-gradient-to-r from-yellow-500 to-red-500 bg-clip-text drop-shadow-lg animate-slide-in">
+          Master the Quran Online
+          <br />
+          with Expert Tutors
+        </h1>
+        <p className="text-lg sm:text-2xl font-light max-w-3xl mx-auto italic tracking-wide mt-4 animate-fade-in-delay">
+          Learn the Quran anytime, anywhere with personalized one-on-one sessions designed to fit your schedule.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-6 mt-8">
+          <Link
+            href="/signup"
+            className="px-10 py-4 rounded-full bg-yellow-500 text-black font-bold text-lg sm:text-xl hover:bg-yellow-400 transition-all transform hover:scale-105 shadow-xl"
+          >
+            Sign Up Now
+          </Link>
+          <Link
+            href="/signup"
+            className="px-10 py-4 rounded-full bg-transparent border-2 border-yellow-500 text-yellow-500 font-bold text-lg sm:text-xl hover:bg-yellow-500 hover:text-black transition-all transform hover:scale-105 shadow-xl"
+          >
+            Book a Free Demo Class
+          </Link>
+        </div>
+      </header>
+
+      {/* Features Section */}
+      <section className="flex flex-col gap-12 items-center py-16 bg-gray-900/60">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-green-400 drop-shadow-lg mb-10">
+          Why Choose Us?
+        </h2>
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 px-6">
+          <Feature
+            imgSrc="/feature-tutor.webp"
+            title="Expert Tutors"
+            description="Our certified tutors provide in-depth guidance on Tajweed and Tafseer, ensuring a comprehensive understanding of the Quran."
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <Feature
+            imgSrc="/feature-flexible.jpg"
+            title="Flexible Schedule"
+            description="Select lesson times that suit your lifestyle. Our 24/7 availability ensures that learning the Quran fits seamlessly into your routine."
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <Feature
+            imgSrc="/feature-resources.png"
+            title="Interactive Resources"
+            description="Engage with a rich library of videos, quizzes, and interactive exercises, designed to enhance your learning experience."
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="bg-gray-800/50 py-16">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-yellow-300 mb-12">
+          What Our Students Say
+        </h2>
+        <div className="flex flex-col sm:flex-row gap-8 justify-center py-8">
+          <Testimonial
+            name="Ahmed Ali"
+            text="This platform has transformed the way I learn the Quran. The tutors are fantastic!"
+          />
+          <Testimonial
+            name="Fatima Zahra"
+            text="Flexible timings and expert teachers made my journey so much easier."
+          />
+          <Testimonial
+            name="Zainab Khan"
+            text="I love the interactive resources and personalized learning experience."
+          />
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section
+        id="signup"
+        className="flex flex-col items-center gap-8 py-16 bg-gradient-to-r from-indigo-900 via-indigo-950 to-black"
+      >
+        <h2 className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-400 drop-shadow-lg text-center">
+          Ready to Begin Your Journey?
+        </h2>
+        <p className="text-lg sm:text-xl font-light max-w-lg tracking-wide text-center mt-4 mb-6">
+          Sign up today and start exploring the Quran with personalized, one-on-one tutoring sessions that are tailored to your needs.
+        </p>
+        <div className="flex gap-4">
+          <Link
+            href="/signup"
+            className="px-12 py-5 rounded-full bg-yellow-500 text-black font-semibold text-xl sm:text-2xl hover:bg-yellow-400 transition-all transform hover:scale-110 shadow-xl"
+          >
+            Get Started Now
+          </Link>
+        </div>
+      </section>
     </div>
   );
-}
+};
+
+const Feature: React.FC<{ imgSrc: string; title: string; description: string }> = ({
+  imgSrc,
+  title,
+  description,
+}) => (
+  <div className="flex flex-col items-center bg-white/10 p-8 rounded-lg shadow-xl hover:scale-105 transition-all transform">
+    <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden mb-6">
+      <Image
+        src={imgSrc}
+        alt={title}
+        layout="fill"
+        objectFit="cover"
+        className="rounded-full"
+      />
+    </div>
+    <h3 className="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4">{title}</h3>
+    <p className="text-center text-lg sm:text-xl font-light">{description}</p>
+  </div>
+);
+
+const Testimonial: React.FC<{ name: string; text: string }> = ({ name, text }) => (
+  <div className="bg-white/10 p-8 rounded-lg shadow-md max-w-sm animate-fade-in">
+    <p className="italic text-lg sm:text-xl mb-4 text-transparent bg-gradient-to-r from-white via-yellow-300 to-red-500 bg-clip-text">
+      &quot;{text}&quot;
+    </p>
+    <h4 className="text-yellow-300 font-extrabold text-right text-xl sm:text-2xl">
+      {name}
+    </h4>
+  </div>
+);
+
+export default HomePage;
