@@ -47,12 +47,20 @@ const Pricing: React.FC = () => {
   ];
 
   return (
-    <div className="container mx-auto p-6" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
+    <div
+      className="min-h-screen flex flex-col p-6 bg-cover bg-center"
+      style={{
+        backgroundImage: "url('/path-to-your-background-image.jpg')", // Add your background image here
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed', // Optional for parallax effect
+      }}
+    >
       {/* Pricing Header */}
-      <div className="text-center mb-10 p-5 bg-blue-950 rounded-lg shadow-md">
+      <div className="text-center mb-10 p-5 bg-black/50 rounded-lg shadow-md">
         <h2
           className="text-4xl font-bold text-white-400"
-          style={{ fontFamily: "Times New Roman, serif", textShadow: "1px 1px 6px black" }}
+          style={{ fontFamily: 'Times New Roman, serif', textShadow: '1px 1px 6px black' }}
         >
           Select Your Pricing Plans
         </h2>
@@ -63,12 +71,13 @@ const Pricing: React.FC = () => {
         {pricingPlans.map((plan, index) => (
           <div
             key={index}
-            className="bg-blue-950 p-6 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col justify-between"
+            className="bg-black/50 bg-opacity-70 p-6 rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-transform duration-300 ease-in-out flex flex-col justify-between"
+            style={{ fontFamily: 'Times New Roman, serif' }} // Apply Times New Roman globally
           >
             {/* Heading at the top center of the card */}
             <h2
               className="text-2xl font-bold text-yellow-400 text-center"
-              style={{ fontFamily: "Times New Roman, serif", textShadow: "2px 2px 6px black" }}
+              style={{ fontFamily: 'Times New Roman, serif', textShadow: '2px 2px 6px black' }}
             >
               {plan.name}
             </h2>

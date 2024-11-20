@@ -1,13 +1,15 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { FaStar, FaUserGraduate, FaChalkboardTeacher, FaGlobe } from "react-icons/fa";
 
 const HomePage: React.FC = () => {
   return (
-    <div className="relative flex flex-col min-h-screen bg-gradient-to-br from-indigo-900 via-indigo-950 to-black text-white font-serif overflow-hidden">
+    <div
+    className="relative flex flex-col min-h-screen text-white font-serif overflow-auto"
+    >
       {/* Hero Section */}
       <header className="relative text-center flex flex-col items-center gap-6 py-24 sm:py-12">
-        {/* Main Image */}
         <div className="relative w-full sm:w-3/4 md:w-1/2 mb-8 animate-fade-in">
           <Image
             src="/KhairuKum.jpg"
@@ -19,7 +21,6 @@ const HomePage: React.FC = () => {
           />
         </div>
 
-        {/* Hero Text */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-gradient-to-r from-yellow-500 to-red-500 bg-clip-text drop-shadow-lg animate-slide-in">
           Master the Quran Online
           <br />
@@ -68,12 +69,44 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Statistics Section */}
       <section className="bg-gray-800/50 py-16">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-center text-yellow-300 mb-12">
+          Our Achievements
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-lg text-center">
+          <div className="flex flex-col items-center">
+            <FaStar className="text-yellow-400 text-4xl mb-2" />
+            <h3 className="text-2xl font-semibold">Rating 4.9</h3>
+            <p className="text-yellow-300">2,490 reviews</p>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <FaUserGraduate className="text-yellow-400 text-4xl mb-2" />
+            <h3 className="text-2xl font-semibold">600 +</h3>
+            <p className="text-yellow-300">Registered Students</p>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <FaChalkboardTeacher className="text-yellow-400 text-4xl mb-2" />
+            <h3 className="text-2xl font-semibold">300 +</h3>
+            <p className="text-yellow-300">Quran Tutors Available</p>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <FaGlobe className="text-yellow-400 text-4xl mb-2" />
+            <h3 className="text-2xl font-semibold">12,900 +</h3>
+            <p className="text-yellow-300">Online Quran Classes</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="bg-blue-950/50 py-16">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-yellow-300 mb-12">
           What Our Students Say
         </h2>
-        <div className="flex flex-col sm:flex-row gap-8 justify-center py-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
           <Testimonial
             name="Ahmed Ali"
             text="This platform has transformed the way I learn the Quran. The tutors are fantastic!"
@@ -86,13 +119,25 @@ const HomePage: React.FC = () => {
             name="Zainab Khan"
             text="I love the interactive resources and personalized learning experience."
           />
+          <Testimonial
+            name="Omar Rashid"
+            text="The online classes have allowed me to study the Quran at my own pace, and the tutors are very helpful."
+          />
+          <Testimonial
+            name="Aisha Noor"
+            text="I’ve gained so much from this platform, and I appreciate the flexibility and depth of learning."
+          />
+          <Testimonial
+            name="Sara Imran"
+            text="The personalized sessions have helped me understand the Quran in a way that’s meaningful to me."
+          />
         </div>
       </section>
 
       {/* Call to Action Section */}
       <section
         id="signup"
-        className="flex flex-col items-center gap-8 py-16 bg-gradient-to-r from-indigo-900 via-indigo-950 to-black"
+        className="flex flex-col items-center gap-4 py-8 bg-gradient-to-r from-blue-950 via-blue-90"
       >
         <h2 className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-400 drop-shadow-lg text-center">
           Ready to Begin Your Journey?
@@ -113,20 +158,10 @@ const HomePage: React.FC = () => {
   );
 };
 
-const Feature: React.FC<{ imgSrc: string; title: string; description: string }> = ({
-  imgSrc,
-  title,
-  description,
-}) => (
+const Feature: React.FC<{ imgSrc: string; title: string; description: string }> = ({ imgSrc, title, description }) => (
   <div className="flex flex-col items-center bg-white/10 p-8 rounded-lg shadow-xl hover:scale-105 transition-all transform">
     <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden mb-6">
-      <Image
-        src={imgSrc}
-        alt={title}
-        layout="fill"
-        objectFit="cover"
-        className="rounded-full"
-      />
+      <Image src={imgSrc} alt={title} layout="fill" objectFit="cover" className="rounded-full" />
     </div>
     <h3 className="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4">{title}</h3>
     <p className="text-center text-lg sm:text-xl font-light">{description}</p>
@@ -134,13 +169,9 @@ const Feature: React.FC<{ imgSrc: string; title: string; description: string }> 
 );
 
 const Testimonial: React.FC<{ name: string; text: string }> = ({ name, text }) => (
-  <div className="bg-white/10 p-8 rounded-lg shadow-md max-w-sm animate-fade-in">
-    <p className="italic text-lg sm:text-xl mb-4 text-transparent bg-gradient-to-r from-white via-yellow-300 to-red-500 bg-clip-text">
-      &quot;{text}&quot;
-    </p>
-    <h4 className="text-yellow-300 font-extrabold text-right text-xl sm:text-2xl">
-      {name}
-    </h4>
+  <div className="bg-white/20 p-8 rounded-lg shadow-xl hover:scale-105 transition-all transform">
+    <p className="text-lg sm:text-xl italic text-center text-yellow-300 mb-4">{`"${text}"`}</p>
+    <p className="text-lg sm:text-xl font-semibold text-center">{`- ${name}`}</p>
   </div>
 );
 

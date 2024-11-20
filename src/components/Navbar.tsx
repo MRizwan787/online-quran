@@ -28,7 +28,14 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="left-0 w-full bg-blue-950 p-2 z-50 shadow-xl">
+    <header
+      className="left-0 w-full p-2 z-50 shadow-xl"
+      style={{
+        backgroundImage: "url('/backgroun3.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="container mx-auto flex flex-col items-center justify-center">
         {/* Logo and Title Section (Centered) */}
         <div className="flex flex-col items-center mb-2">
@@ -60,7 +67,7 @@ const Navbar: React.FC = () => {
                 <Link
                   href={link.href}
                   className={cn(
-                    "flex items-center gap-2 px-4 py-2 rounded-lg text-white text-lg font-medium transition-all duration-300 ease-in-out transform hover:bg-yellow-500 hover:text-blue-900 hover:scale-105",
+                    "flex items-center gap-2 px-4 py-2 rounded-lg text-white text-lg font-medium transition-all duration-300 ease-in-out transform hover:bg-green-600 hover:text-white hover:scale-105",
                     "font-serif"
                   )}
                 >
@@ -72,7 +79,7 @@ const Navbar: React.FC = () => {
             <NavigationMenuItem>
               <Link
                 href="/signup"
-                className="flex items-center gap-2 px-6 py-2 rounded-lg bg-gradient-to-r from-indigo-600 via-blue-600 to-teal-500 text-white text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+                className="flex items-center gap-2 px-6 py-2 rounded-lg bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
               >
                 Sign Up
               </Link>
@@ -114,7 +121,7 @@ const Navbar: React.FC = () => {
               <li key={link.name}>
                 <Link
                   href={link.href}
-                  className="flex items-center gap-2 px-6 py-2 rounded-lg text-white text-lg font-medium transition-all duration-300 ease-in-out transform hover:bg-yellow-500 hover:text-blue-900 hover:scale-105"
+                  className="flex items-center gap-2 px-6 py-2 rounded-lg text-white text-lg font-medium transition-all duration-300 ease-in-out transform hover:bg-green-600 hover:text-white hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.icon}
@@ -125,7 +132,7 @@ const Navbar: React.FC = () => {
             <li>
               <Link
                 href="/signup"
-                className="flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-indigo-600 via-blue-600 to-teal-500 text-white text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+                className="flex items-center gap-2 px-8 py-3 rounded-lg bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Sign Up

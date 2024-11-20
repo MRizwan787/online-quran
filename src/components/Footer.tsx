@@ -4,14 +4,18 @@ import { Separator } from "@/components/ui/separator";
 import { FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaEnvelope } from "react-icons/fa";
 
 const Footer: React.FC = () => {
-  // Reusable className for the heading gradient
   const headingClassName =
     "text-3xl font-bold mb-4 text-transparent bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text";
 
   return (
     <footer
       className="bg-gradient-to-b from-blue-950 via-blue-950 to-blue-920 text-white py-12"
-      style={{ fontFamily: "Times New Roman, serif" }}
+      style={{
+        fontFamily: "Times New Roman, serif",
+        backgroundImage: "url('/background4.jpg')", // Add the background image here
+        backgroundSize: "cover", // Ensure the image covers the footer area
+        backgroundPosition: "center", // Center the background image
+      }}
     >
       <div className="max-w-5xl mx-auto px-4 text-center">
         {/* Centered Columns Section */}
@@ -43,17 +47,38 @@ const Footer: React.FC = () => {
           <div className="text-center">
             <h2 className={headingClassName}>Useful Links</h2>
             <ul className="space-y-3 text-lg">
-              {["About Us", "Our Blogs", "FAQs", "Contact Us"].map((link) => (
-                <li key={link}>
-                  <Link
-                    href={`#${link.toLowerCase().replace(" ", "-")}`}
-                    className="inline-block text-white hover:text-yellow-300 transition-all duration-200"
-                    style={{ width: "fit-content", margin: "0 auto" }}
-                  >
-                    {link}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="/about"
+                  className="inline-block text-white hover:text-yellow-300 transition-all duration-200"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="inline-block text-white hover:text-yellow-300 transition-all duration-200"
+                >
+                  Our Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/faq"
+                  className="inline-block text-white hover:text-yellow-300 transition-all duration-200"
+                >
+                  FAQs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="inline-block text-white hover:text-yellow-300 transition-all duration-200"
+                >
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

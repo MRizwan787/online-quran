@@ -1,9 +1,9 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import "./globals.css";
 
 // Import custom fonts
 const geistSans = localFont({
@@ -17,29 +17,30 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-// Metadata for the application
 export const metadata: Metadata = {
   title: "Online Quran Tutoring",
   description: "Learn the Qur'an online with experienced tutors",
 };
 
-// Root layout component
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-blue-900 via-indigo-900 to-black text-white`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-white bg-cover bg-fixed`}
+        style={{
+          backgroundImage: "url('/background2.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
         {/* Navbar Component */}
         <Navbar />
-
         {/* Main Content */}
-        <main className="flex-grow">{children}</main>
-
+        <main>{children}</main>
         {/* Footer Component */}
         <Footer />
       </body>
