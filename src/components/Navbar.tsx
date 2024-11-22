@@ -31,7 +31,7 @@ const Navbar: React.FC = () => {
     <header
       className="left-0 w-full p-2 z-50 shadow-xl"
       style={{
-        backgroundImage: "url('/backgroun3.jpg')",
+        backgroundImage: "url('/background3.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -41,12 +41,12 @@ const Navbar: React.FC = () => {
         <div className="flex flex-col items-center mb-2">
           {/* Logo Image */}
           <Image
-            src="/NoorQuran.jpg"
-            alt="Noor-e-Quran Logo"
-            height={60}
-            width={60}
-            className="object-cover rounded-full shadow-[0_0_6px_6px_rgba(255,255,255,0.5)]"
-          />
+  src="/NoorQuran.jpg"
+  alt="Noor-e-Quran Logo"
+  height={80}
+  width={80}
+  className="object-cover rounded-full shadow-[0_0_6px_6px_rgba(255,255,255,0.5)]"
+/>
           {/* Logo Text */}
           <div
             className="text-2xl text-white mt-2"
@@ -79,7 +79,7 @@ const Navbar: React.FC = () => {
             <NavigationMenuItem>
               <Link
                 href="/signup"
-                className="flex items-center gap-2 px-6 py-2 rounded-lg bg-gradient-to-r from-green-400 via-green-500 to-green-600 text-white text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
+                className="flex items-center gap-2 px-6 py-2 rounded-lg bg-gradient-to-r from-green-500 via-green-600 to-green-700 text-white text-lg font-semibold transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg"
               >
                 Sign Up
               </Link>

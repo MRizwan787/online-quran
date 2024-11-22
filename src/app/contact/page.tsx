@@ -59,7 +59,7 @@ const ContactPage: React.FC = () => {
     <div
       className="min-h-screen flex flex-col items-center py-10 text-white"
       style={{
-        backgroundImage: "url('/contact-background.jpg')", // Path to the Contact Page background
+        backgroundImage: "url('/background3.jpg')", // Path to the Contact Page background
         backgroundSize: "cover", // Ensures the background covers the entire page
         backgroundPosition: "center", // Centers the background
         backgroundAttachment: "fixed", // Optional for a parallax effect

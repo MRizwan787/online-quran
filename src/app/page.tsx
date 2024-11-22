@@ -5,18 +5,16 @@ import { FaStar, FaUserGraduate, FaChalkboardTeacher, FaGlobe } from "react-icon
 
 const HomePage: React.FC = () => {
   return (
-    <div
-    className="relative flex flex-col min-h-screen text-white font-serif overflow-auto"
-    >
+    <div className="relative flex flex-col min-h-screen text-white font-serif overflow-auto">
       {/* Hero Section */}
       <header className="relative text-center flex flex-col items-center gap-6 py-24 sm:py-12">
         <div className="relative w-full sm:w-3/4 md:w-1/2 mb-8 animate-fade-in">
           <Image
             src="/KhairuKum.jpg"
             alt="Learning Quran"
-            layout="responsive"
             width={800}
             height={533}
+            style={{ width: "auto", height: "auto" }}
             className="rounded-lg shadow-2xl transform hover:scale-105 transition-transform object-cover"
           />
         </div>
@@ -160,8 +158,14 @@ const HomePage: React.FC = () => {
 
 const Feature: React.FC<{ imgSrc: string; title: string; description: string }> = ({ imgSrc, title, description }) => (
   <div className="flex flex-col items-center bg-white/10 p-8 rounded-lg shadow-xl hover:scale-105 transition-all transform">
-    <div className="relative w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full overflow-hidden mb-6">
-      <Image src={imgSrc} alt={title} layout="fill" objectFit="cover" className="rounded-full" />
+    <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-55 rounded-full overflow-hidden mb-6">
+      <Image
+        src={imgSrc}
+        alt={title}
+        fill
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="rounded-full"
+      />
     </div>
     <h3 className="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4">{title}</h3>
     <p className="text-center text-lg sm:text-xl font-light">{description}</p>
@@ -169,9 +173,9 @@ const Feature: React.FC<{ imgSrc: string; title: string; description: string }> 
 );
 
 const Testimonial: React.FC<{ name: string; text: string }> = ({ name, text }) => (
-  <div className="bg-white/20 p-8 rounded-lg shadow-xl hover:scale-105 transition-all transform">
-    <p className="text-lg sm:text-xl italic text-center text-yellow-300 mb-4">{`"${text}"`}</p>
-    <p className="text-lg sm:text-xl font-semibold text-center">{`- ${name}`}</p>
+  <div className="flex flex-col items-center bg-white/10 p-8 rounded-lg shadow-xl hover:scale-105 transition-all transform">
+    <p className="text-lg italic text-yellow-100 mb-4">"{text}"</p>
+    <h4 className="text-lg sm:text-xl font-semibold text-yellow-300">- {name}</h4>
   </div>
 );
 

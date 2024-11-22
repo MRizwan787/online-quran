@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
       className="bg-gradient-to-b from-blue-950 via-blue-950 to-blue-920 text-white py-12"
       style={{
         fontFamily: "Times New Roman, serif",
-        backgroundImage: "url('/background4.jpg')", // Add the background image here
+        backgroundImage: "url('/background6.jpg')", // Add the background image here
         backgroundSize: "cover", // Ensure the image covers the footer area
         backgroundPosition: "center", // Center the background image
       }}

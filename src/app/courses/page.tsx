@@ -5,7 +5,7 @@ const Courses: React.FC = () => {
     <div
       className="min-h-screen flex flex-col p-6 text-white font-serif"
       style={{
-        backgroundImage: "url('/courses-background.jpg')", // Add your background image here
+        backgroundImage: "url('/background3.jpg')", // Add your background image here
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed", // Optional parallax effect

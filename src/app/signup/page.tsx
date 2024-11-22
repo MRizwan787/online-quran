@@ -78,7 +78,7 @@ const SignUpPage: React.FC = () => {
     <div
       className="min-h-screen text-white flex flex-col items-center py-10"
       style={{
-        backgroundImage: "url('/path-to-your-background-image.jpg')",
+        backgroundImage: "url('/background3.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
