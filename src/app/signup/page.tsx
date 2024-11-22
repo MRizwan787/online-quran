@@ -11,7 +11,7 @@ import {
   SelectItem,
   SelectValue,
 } from "@/components/ui/select";
-import { FaEnvelope, FaPhone, FaUser, FaGlobe, FaBook } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaUser } from "react-icons/fa";
 
 const SignUpPage: React.FC = () => {
   // State for form fields
