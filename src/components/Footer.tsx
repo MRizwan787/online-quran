@@ -7,6 +7,13 @@ const Footer: React.FC = () => {
   const headingClassName =
     "text-3xl font-bold mb-4 text-transparent bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 bg-clip-text";
 
+  // Social media links
+  const socialLinks = [
+    { href: "https://www.facebook.com", icon: FaFacebook, label: "Facebook", color: "hover:text-blue-500" },
+    { href: "https://www.instagram.com", icon: FaInstagram, label: "Instagram", color: "hover:text-pink-500" },
+    { href: "https://www.linkedin.com", icon: FaLinkedin, label: "LinkedIn", color: "hover:text-blue-400" },
+  ];
+
   return (
     <footer
       className="bg-gradient-to-b from-blue-950 via-blue-950 to-blue-920 text-white py-12"
@@ -23,7 +30,7 @@ const Footer: React.FC = () => {
           {/* Contact Us Section */}
           <div className="text-center">
             <h2 className={headingClassName}>Contact Us</h2>
-            <ul className="space-y-3 text-lg">
+            <ul className="space-y-3 text-sm md:text-lg">
               <li className="flex items-center justify-center gap-2">
                 <FaPhone className="text-yellow-300" />
                 <span>+1 7137692999</span>
@@ -46,7 +53,7 @@ const Footer: React.FC = () => {
           {/* Useful Links Section */}
           <div className="text-center">
             <h2 className={headingClassName}>Useful Links</h2>
-            <ul className="space-y-3 text-lg">
+            <ul className="space-y-3 text-sm md:text-lg">
               <li>
                 <Link
                   href="/about"
@@ -88,21 +95,25 @@ const Footer: React.FC = () => {
         {/* Follow Us Section */}
         <div className="text-center">
           <h2 className={headingClassName}>Follow Us</h2>
-          <div className="flex justify-center gap-5 text-2xl">
-            <Link href="https://www.facebook.com" target="_blank" className="hover:text-blue-500">
-              <FaFacebook />
-            </Link>
-            <Link href="https://www.instagram.com" target="_blank" className="hover:text-pink-500">
-              <FaInstagram />
-            </Link>
-            <Link href="https://www.linkedin.com" target="_blank" className="hover:text-blue-400">
-              <FaLinkedin />
-            </Link>
+          <div className="flex justify-center gap-5 text-xl md:text-2xl">
+            {socialLinks.map(({ href, icon: Icon, label, color }, index) => (
+              <Link
+                key={index}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className={`flex items-center gap-2 ${color}`}
+              >
+                <Icon />
+                <span className="hidden sm:inline">{label}</span> {/* Visible on small screens and up */}
+              </Link>
+            ))}
           </div>
         </div>
 
         {/* Footer Bottom Text */}
-        <div className="mt-4 text-white font-semibold text-lg lg:text-xl text-center">
+        <div className="mt-4 text-white font-semibold text-sm md:text-lg text-center">
           <p>© 2024 Quran Tutoring. All rights reserved.</p>
         </div>
       </div>

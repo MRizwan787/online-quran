@@ -167,15 +167,15 @@ const Feature: React.FC<{ imgSrc: string; title: string; description: string }> 
         className="rounded-full"
       />
     </div>
-    <h3 className="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4">{title}</h3>
+    <h3 className="text-2xl sm:text-3xl font-semibold text-yellow-300 mb-4 text-center">{title}</h3>
     <p className="text-center text-lg sm:text-xl font-light">{description}</p>
   </div>
 );
 
 const Testimonial: React.FC<{ name: string; text: string }> = ({ name, text }) => (
-  <div className="flex flex-col items-center bg-white/10 p-8 rounded-lg shadow-xl hover:scale-105 transition-all transform">
-    <p className="text-lg italic text-yellow-100 mb-4">"{text}"</p>
-    <h4 className="text-lg sm:text-xl font-semibold text-yellow-300">- {name}</h4>
+  <div className="flex flex-col items-center bg-white/10 p-8 rounded-lg shadow-xl">
+    <p className="italic text-center text-lg font-light mb-6">&ldquo;{text}&rdquo;</p>
+    <h4 className="text-yellow-300 font-semibold text-xl text-center">{name}</h4>
   </div>
 );
 
