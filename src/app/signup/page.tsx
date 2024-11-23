@@ -4,14 +4,14 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import {
+import {  
   Select,
   SelectTrigger,
   SelectContent,
   SelectItem,
   SelectValue,
 } from "@/components/ui/select";
-import { FaEnvelope, FaPhone, FaUser } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaUser, FaTransgender, FaBookOpen, FaDollarSign } from "react-icons/fa";
 
 const SignUpPage: React.FC = () => {
   // State for form fields
@@ -143,7 +143,10 @@ const SignUpPage: React.FC = () => {
 
           {/* Gender Selection */}
           <div>
-            <label className="block text-sm font-medium mb-1 text-white">Gender *</label>
+            <label className="block text-sm font-medium mb-1 text-white flex items-center">
+              <FaTransgender className="mr-2 text-yellow-400 text-lg" />
+              Select your gender *
+            </label>
             <Select onValueChange={(value) => handleSelectChange("gender", value)}>
               <SelectTrigger className="w-full bg-white/20 border border-yellow-500 text-white placeholder-white pl-12">
                 <SelectValue placeholder="Select your gender" />
@@ -158,7 +161,10 @@ const SignUpPage: React.FC = () => {
 
           {/* Course Selection */}
           <div>
-            <label className="block text-sm font-medium mb-1 text-white">Select Your Course *</label>
+            <label className="block text-sm font-medium mb-1 text-white flex items-center">
+              <FaBookOpen className="mr-2 text-yellow-400 text-lg" />
+              Select Your Course *
+            </label>
             <Select onValueChange={(value) => handleSelectChange("course", value)}>
               <SelectTrigger className="w-full bg-white/20 border border-yellow-500 text-white placeholder-white pl-12">
                 <SelectValue placeholder="Select your course" />
@@ -179,7 +185,10 @@ const SignUpPage: React.FC = () => {
 
           {/* Pricing Plan Selection */}
           <div>
-            <label className="block text-sm font-medium mb-1 text-white">Select a Pricing Plan *</label>
+            <label className="block text-sm font-medium mb-1 text-white flex items-center">
+              <FaDollarSign className="mr-2 text-yellow-400 text-lg" />
+              Select a Pricing Plan *
+            </label>
             <Select onValueChange={(value) => handleSelectChange("pricingPlan", value)}>
               <SelectTrigger className="w-full bg-white/20 border border-yellow-500 text-white placeholder-white pl-12">
                 <SelectValue placeholder="Select your pricing plan" />
@@ -202,16 +211,14 @@ const SignUpPage: React.FC = () => {
               name="message"
               value={formData.message}
               onChange={handleInputChange}
-              placeholder="e.g. I am interested in this course."
+              placeholder="Enter any additional message"
               className="w-full bg-white/20 border border-yellow-500 text-white placeholder-white/80 shadow-lg"
-              rows={4}
             />
           </div>
 
-          {/* Submit Button (reverted to previous style) */}
-           {/* Submit Button */}
-           <div className="text-center">
-            <Button
+          {/* Submit Button */}
+          <div className="flex justify-center">
+          <Button
               type="submit"
               disabled={isSubmitting}
               className={`w-full py-2 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-black font-bold hover:from-green-400 hover:to-blue-400 transition shadow-lg ${
@@ -221,14 +228,14 @@ const SignUpPage: React.FC = () => {
               {isSubmitting ? "Submitting..." : "Submit"}
             </Button>
           </div>
-        </form>
 
-        {/* Server Response */}
-        {serverResponse && (
-          <div className="mt-4 text-center text-white">
-            <p>{serverResponse}</p>
-          </div>
-        )}
+          {/* Server Response */}
+          {serverResponse && (
+            <div className="mt-4 text-center text-yellow-300">
+              <p>{serverResponse}</p>
+            </div>
+          )}
+        </form>
       </div>
     </div>
   );
