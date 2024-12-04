@@ -4,14 +4,21 @@ import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import {  
+import {
   Select,
   SelectTrigger,
   SelectContent,
   SelectItem,
   SelectValue,
 } from "@/components/ui/select";
-import { FaEnvelope, FaPhone, FaUser, FaTransgender, FaBookOpen, FaDollarSign } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaUser,
+  FaTransgender,
+  FaBookOpen,
+  FaDollarSign,
+} from "react-icons/fa";
 
 const SignUpPage: React.FC = () => {
   // State for form fields
@@ -28,7 +35,9 @@ const SignUpPage: React.FC = () => {
   const [serverResponse, setServerResponse] = useState<string | null>(null);
 
   // Handle input changes
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -44,7 +53,8 @@ const SignUpPage: React.FC = () => {
     setServerResponse(null);
 
     try {
-      const response = await fetch("/api/signup", {
+      // Adjust the fetch URL if your backend is running on a different server or port
+      const response = await fetch("http://localhost:5000/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,6 +78,7 @@ const SignUpPage: React.FC = () => {
         setServerResponse("Failed to submit the form. Please try again.");
       }
     } catch (error) {
+      console.error("Error submitting form: ", error);
       setServerResponse("An error occurred while submitting the form.");
     } finally {
       setIsSubmitting(false);
@@ -218,24 +229,22 @@ const SignUpPage: React.FC = () => {
 
           {/* Submit Button */}
           <div className="flex justify-center">
-          <Button
+            <Button
               type="submit"
+              className="w-full py-2 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-black font-bold hover:from-green-400 hover:to-blue-400 transition shadow-lg"
               disabled={isSubmitting}
-              className={`w-full py-2 rounded-full bg-gradient-to-r from-green-500 to-blue-500 text-black font-bold hover:from-green-400 hover:to-blue-400 transition shadow-lg ${
-                isSubmitting ? "opacity-50 cursor-not-allowed" : ""
-              }`}
             >
               {isSubmitting ? "Submitting..." : "Submit"}
             </Button>
           </div>
-
-          {/* Server Response */}
-          {serverResponse && (
-            <div className="mt-4 text-center text-yellow-300">
-              <p>{serverResponse}</p>
-            </div>
-          )}
         </form>
+
+        {/* Server Response */}
+        {serverResponse && (
+          <div className="mt-6 text-center text-lg font-semibold text-yellow-500">
+            {serverResponse}
+          </div>
+        )}
       </div>
     </div>
   );

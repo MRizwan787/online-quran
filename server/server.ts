@@ -1,18 +1,41 @@
-import express from "express";
-import signupRouter from "./routes/signup"; // Adjust the path if necessary
-import contactRouter from "./routes/contact"; // Adjust the path if necessary
+import app from "./app"; // Importing the app from app.ts
+import dotenv from "dotenv"; // Environment variables
+import { connectDB } from "./config/db";
+import express from "express"; // Import express to serve static files
+import path from "path"; // Import path for resolving directories
 
-const app = express();
-app.use(express.json());
+// Load environment variables
+dotenv.config();
 
-// Use the routes
-app.use("/api/signup", signupRouter);
-app.use("/api/contact", contactRouter);
+const PORT = process.env.PORT || 5000;
 
-const PORT = 5000;
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, "../public")));
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+const startServer = async () => {
+  try {
+    await connectDB(); // Ensure MongoDB connection is established
+    console.log("MongoDB connection established successfully");
 
-export default app;
+    // Start the server
+    const server = app.listen(PORT, () => {
+      console.log(`Server is running on http://localhost:${PORT}`);
+    });
+
+    // Handle server shutdown gracefully
+    process.on("SIGINT", () => {
+      server.close(() => {
+        console.log("Server closed. Exiting process.");
+        process.exit(0);
+      });
+    });
+
+  } catch (error) {
+    console.error("Failed to connect to MongoDB. Exiting process.", error);
+    process.exit(1); // Exit with failure code if DB connection fails
+  }
+};
+
+startServer();
+
+export { startServer };

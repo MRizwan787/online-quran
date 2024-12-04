@@ -1,13 +1,12 @@
 import express from "express";
 import { body, validationResult } from "express-validator";
-import createSignupEntry from "../controllers/signupController"; // Default import
+import { createSignupEntry, getSignupEntries } from "../controllers/signupController"; // Import both controller functions
 
 const router = express.Router();
 
-// Define POST route for signup form submission with express-validator middleware
+// POST route: Create signup entry
 router.post(
   "/",
-  // Validation middleware using express-validator
   body("name").notEmpty().withMessage("Name is required."),
   body("email").isEmail().withMessage("Please provide a valid email address."),
   body("phone")
@@ -17,21 +16,18 @@ router.post(
   body("course").notEmpty().withMessage("Course is required."),
   body("pricingPlan").optional().isString().withMessage("Pricing plan must be a string."),
   body("message").optional().isString().withMessage("Message must be a string."),
-
-  // Validation result handling
   (req: express.Request, res: express.Response, next: express.NextFunction): void => {
     const errors = validationResult(req);
-
-    // If there are validation errors, send the errors as response
     if (!errors.isEmpty()) {
       res.status(400).json({ errors: errors.array() });
     } else {
-      next(); // If validation passes, move to the controller
+      next();
     }
   },
-
-  // Pass control to the signup controller if validation passes
   createSignupEntry
 );
+
+// GET route: Fetch all signup entries
+router.get("/", getSignupEntries);
 
 export default router;

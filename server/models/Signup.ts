@@ -15,12 +15,13 @@ const SignupSchema: Schema = new Schema(
     name: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: String, required: true },
-    gender: { type: String, required: true },
+    gender: { type: String, required: true, enum: ["male", "female", "other"] },
     course: { type: String, required: true },
     pricingPlan: { type: String },
     message: { type: String },
   },
-  { timestamps: true }
+  { timestamps: true } // Auto-adds createdAt and updatedAt
 );
 
-export default mongoose.model<ISignup>("Signup", SignupSchema);
+const Signup = mongoose.model<ISignup>("Signup", SignupSchema);
+export default Signup;

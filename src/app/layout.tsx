@@ -20,6 +20,9 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Online Quran Tutoring",
   description: "Learn the Qur'an online with experienced tutors",
+  icons: {
+    icon: "/favicon.ico", // Favicon added here
+  },
 };
 
 export default function RootLayout({
