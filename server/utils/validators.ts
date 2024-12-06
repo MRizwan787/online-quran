@@ -13,15 +13,6 @@ export const signupValidationRules = [
   body("message").optional().isString().withMessage("Message must be a string."),
 ];
 
-// Validation rules for the contact form
-export const contactValidationRules = [
-  body("fullName").notEmpty().withMessage("Full name is required."),
-  body("email").isEmail().withMessage("Please provide a valid email address."),
-  body("phone").matches(/^\+?[1-9]\d{1,14}$/).withMessage("Please provide a valid phone number."),
-  body("country").notEmpty().withMessage("Country is required."),
-  body("message").isString().withMessage("Message must be a string.").isLength({ min: 10 }).withMessage("Message must be at least 10 characters long."),
-];
-
 // Helper function to handle validation errors
 export const handleValidationErrors = (req: any, res: any, next: any): void => {
   const errors = validationResult(req);

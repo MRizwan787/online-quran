@@ -4,7 +4,6 @@ import bodyParser from "body-parser";
 import morgan from "morgan"; // Logger
 import dotenv from "dotenv"; // Environment variables
 import path from "path"; // Path for serving static files
-import contactRoutes from "./routes/contact";
 import signupRoutes from "./routes/signup"; // Import routes with both GET and POST for signup
 import { connectDB } from "./config/db";
 
@@ -32,7 +31,6 @@ app.use(express.static(path.join(__dirname, "../public")));
 connectDB();
 
 // API Routes
-app.use("/api/contact", contactRoutes);
 app.use("/api/signup", signupRoutes); // This includes both GET and POST routes for signup
 
 // Default route
