@@ -5,33 +5,39 @@ const Blog: React.FC = () => {
   const blogs = [
     {
       title: "Importance of Quran Learning",
-      image: "blog2.png",
+      image: "blog2.jpg",
       link: "/blog/quran-learning",
+      description: "Discover why learning the Quran is essential for spiritual and personal growth.",
     },
     {
       title: "Dynamic Teachings of Quran",
       image: "blog5.jpg",
       link: "/blog/teachings-of-quran",
+      description: "Explore how the teachings of the Quran remain relevant in our dynamic world.",
     },
     {
       title: "Quran and Modern World",
       image: "blog6.jpg",
       link: "/blog/quran-modern-world",
+      description: "Understand the Quran's perspective on modern challenges and solutions.",
     },
     {
       title: "Islam the True Religion",
       image: "blog1.jpg",
       link: "/blog/islam-true-religion",
+      description: "Learn why Islam is considered the complete and true path to peace.",
     },
     {
       title: "How to Convert to Islam",
       image: "blog4.jpg",
       link: "/blog/convert-to-islam",
+      description: "A step-by-step guide for those who wish to embrace Islam.",
     },
     {
       title: "Islam and Nature",
       image: "blog3.jpg",
       link: "/blog/islam-nature",
+      description: "Discover the profound connection between Islam and the natural world.",
     },
   ];
 
@@ -69,7 +75,8 @@ const Blog: React.FC = () => {
                   className="w-full h-48 object-cover rounded-t-lg mb-4"
                 />
                 <h2 className="text-2xl font-bold text-yellow-400 mb-2">{blog.title}</h2>
-                <p className="text-white font-light">Read more about "{blog.title}"</p>
+                <p className="text-white font-light mb-4">{blog.description}</p>
+                <p className="text-yellow-300 font-semibold">Read more →</p>
               </div>
             </Link>
           ))}
