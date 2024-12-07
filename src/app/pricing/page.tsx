@@ -50,7 +50,7 @@ const Pricing: React.FC = () => {
     <div
       className="min-h-screen flex flex-col p-6 bg-cover bg-center"
       style={{
-        backgroundImage: "url('/background3.jpg')", // Add your background image here
+        backgroundImage: "url('/background3.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed', // Optional for parallax effect
@@ -108,7 +108,7 @@ const Pricing: React.FC = () => {
 
             {/* Enroll Now Button with Next.js Link, positioned at the bottom */}
             <div className="mt-6 flex justify-center">
-              <Link href={plan.name === 'Demo Class' ? '/demo' : '/signup'}>
+              <Link href="/signup">
                 <button className="bg-yellow-500 text-black py-3 px-6 rounded-lg shadow-md hover:bg-yellow-400 transition-colors duration-200">
                   {plan.name === 'Demo Class' ? 'Try for Free' : 'Enroll Now'}
                 </button>
