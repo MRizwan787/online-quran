@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-import { FaFacebook, FaInstagram, FaLinkedin, FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaWhatsapp, FaPhone, FaEnvelope } from "react-icons/fa"; // Removed FaLinkedin
 
 const Footer: React.FC = () => {
   const headingClassName =
@@ -9,9 +9,9 @@ const Footer: React.FC = () => {
 
   // Social media links
   const socialLinks = [
-    { href: "https://www.facebook.com", icon: FaFacebook, label: "Facebook", color: "hover:text-blue-500" },
-    { href: "https://www.instagram.com", icon: FaInstagram, label: "Instagram", color: "hover:text-pink-500" },
-    { href: "https://www.linkedin.com", icon: FaLinkedin, label: "LinkedIn", color: "hover:text-blue-400" },
+    { href: "https://www.facebook.com/jamia.saeedia.5?mibextid=ZbWKwL", icon: FaFacebook, label: "Facebook", color: "hover:text-blue-500" }, // Updated Facebook link
+    { href: "https://www.instagram.com/92noor787/", icon: FaInstagram, label: "Instagram", color: "hover:text-pink-500" }, // Updated Instagram link
+    { href: "https://wa.me/+923135710041", icon: FaWhatsapp, label: "WhatsApp", color: "hover:text-green-500" }, // Added WhatsApp link
   ];
 
   return (
